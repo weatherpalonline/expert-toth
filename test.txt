@@ -1,0 +1,3 @@
+Test file for Expert-Tóth Kft repository
+Created: 2025-02-19
+This is a placeholder test commit.
