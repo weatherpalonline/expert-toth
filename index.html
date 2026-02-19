@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert Toth - Welcome</title>
+    <meta name="description" content="Expert-Tóth Kft - Profi bútorlapszabászat Monoron. Egyedi méretre vágás, élzárazás, bútorgyártás.">
+    <title>Expert-Tóth Kft | Bútorlapszabászat Monor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #2c5282;
+            --secondary: #38a169;
+            --accent: #dd6b20;
+            --dark: #1a202c;
+            --light: #f7fafc;
+            --gray: #718096;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,90 +25,590 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
         }
 
-        .container {
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a365d 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #90cdf4;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #90cdf4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.9), rgba(26, 54, 93, 0.9)),
+                        url('https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=1920') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             color: white;
             padding: 2rem;
-            animation: fadeIn 1.5s ease-out;
+            margin-top: 60px;
         }
 
-        h1 {
-            font-size: 4rem;
+        .hero-content h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: bounce 2s infinite;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .subtitle {
+        .hero-content p {
             font-size: 1.5rem;
-            opacity: 0.9;
             margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .sparkle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(221, 107, 32, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
             background: white;
-            border-radius: 50%;
-            animation: sparkle 3s infinite;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
         }
 
-        .creator {
-            margin-top: 3rem;
-            font-size: 1rem;
-            opacity: 0.7;
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 6rem 2rem;
+            background: var(--dark);
+            color: white;
+        }
+
+        .why-us .section-title {
+            color: white;
+        }
+
+        .why-us .section-subtitle {
+            color: #a0aec0;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #a0aec0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--accent);
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        .contact-item.placeholder p {
+            font-style: italic;
+            color: #cbd5e0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>✨ Expert Toth ✨</h1>
-        <p class="subtitle">Professional Excellence & Innovation</p>
-        <div class="creator">
-            <p>Created by <strong>dondiegorivera</strong></p>
-            <p>Powered by ZeroClaw 🚀</p>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Expert-<span>Tóth</span> Kft</div>
+            <ul class="nav-links">
+                <li><a href="#home">Főoldal</a></li>
+                <li><a href="#services">Szolgáltatások</a></li>
+                <li><a href="#about">Rólunk</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Expert-Tóth Kft</h1>
+            <p>Profi bútorlapszabászat és bútorgyártás Monoron</p>
+            <a href="#contact" class="btn">Kérjen Ajánlatot</a>
         </div>
-    </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Szolgáltatásaink</h2>
+        <p class="section-subtitle">Minőségi megoldások egyedi igényekre</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🪚</div>
+                <h3>Bútorlapszabászat</h3>
+                <p>Egyedi méretre vágás precíz gépekkel, gyors határidővel. [Márkák: Egger, Kronospan, stb.]</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Élzárás</h3>
+                <p>Profi élzárazás minden élhez, tartós és esztétikus megoldások.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Egyedi Bútorgyártás</h3>
+                <p>Teljes körű bútorgyártás egyedi tervek alapján, lakossági és üzleti ügyfeleknek.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📐</div>
+                <h3>Tervezés & Tanácsadás</h3>
+                <p>Szakmai segítség a tervezéstől a megvalósításig.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Kiszállítás</h3>
+                <p>[Helyszín: Monor és környéke] - Részletek egyeztetés alapján.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Szerelés</h3>
+                <p>[Opcionális] Szakszerű beszerelés és utómunka.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Rólunk</h2>
+                <p>Az <strong>Expert-Tóth Kft</strong> székhelye <strong>Monoron</strong> található, ahol évek óta foglalkozunk bútorlapszabászattal és egyedi bútorgyártással.</p>
+                
+                <p>Cégünk célja, hogy ügyfeleink számára minőségi, precíz munkát végezzünk versenyképes áron. Legyen szó lakossági vagy üzleti megrendelésről, minden projektet ugyanolyan odafigyeléssel kezelünk.</p>
+                
+                <p><strong>Cégadatok:</strong></p>
+                <ul style="color: var(--gray); margin-left: 1.5rem; margin-top: 1rem;">
+                    <li>Név: Expert-Tóth Kft</li>
+                    <li>Székhely: 2200 Monor, [pontos cím]</li>
+                    <li>Adószám: [adószám]</li>
+                    <li>Cégjegyzékszám: [cégjegyzékszám]</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <div>
+                    <p style="text-align: center;">
+                        📷<br>
+                        <em>[Ide kerül a cég logó vagy<br>műhely fotó]</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <h2 class="section-title">Miért válasszon minket?</h2>
+        <p class="section-subtitle">Tapasztalat és megbízhatóság egy helyen</p>
+        
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-number">[X]</div>
+                <h3>Év Tapasztalat</h3>
+                <p>a bútoriparban</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-number">[X]</div>
+                <h3>Elégedett Ügyfél</h3>
+                <p>országosan</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-number">[X]</div>
+                <h3>Elkészült Projekt</h3>
+                <p>évente</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-number">[X]</div>
+                <h3>Nap Átlagos Leadási Idő</h3>
+                <p>gyors teljesítés</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Kapcsolat</h2>
+        <p class="section-subtitle">Lépjen velünk kapcsolatba még ma!</p>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Elérhetőségek</h3>
+                
+                <div class="contact-item placeholder">
+                    <span class="contact-icon">📍</span>
+                    <p><em>[Cím: 2200 Monor, utca és házszám]</em></p>
+                </div>
+                
+                <div class="contact-item placeholder">
+                    <span class="contact-icon">📞</span>
+                    <p><em>[Telefonszám]</em></p>
+                </div>
+                
+                <div class="contact-item placeholder">
+                    <span class="contact-icon">✉️</span>
+                    <p><em>[Email cím]</em></p>
+                </div>
+                
+                <div class="contact-item placeholder">
+                    <span class="contact-icon">🕐</span>
+                    <p><em>[Nyitvatartás: Hétfő-Péntek, 8:00-17:00]</em></p>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Kövessen minket</h3>
+                
+                <div class="contact-item placeholder">
+                    <span class="contact-icon">📘</span>
+                    <p><em>[Facebook oldal link]</em></p>
+                </div>
+                
+                <div class="contact-item placeholder">
+                    <span class="contact-icon">📸</span>
+                    <p><em>[Instagram profil]</em></p>
+                </div>
+                
+                <div class="contact-item placeholder">
+                    <span class="contact-icon">🔍</span>
+                    <p><em>[Google Business profil]</em></p>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: var(--light); border-radius: 8px;">
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        <strong>📝 Megjegyzés:</strong><br>
+                        A fenti elérhetőségek még nincsenek megadva. Kérjük, vegye fel velünk a kapcsolatot a pontos adatokért.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Expert-Tóth Kft. Minden jog fenntartva.</p>
+            <p>2200 Monor, Magyarország</p>
+            
+            <div class="footer-links">
+                <a href="#">Adatvédelmi irányelvek</a>
+                <a href="#">Felhasználási feltételek</a>
+                <a href="#">Impresszum</a>
+            </div>
+            
+            <p style="font-size: 0.9rem; opacity: 0.6;">
+                [Cégjegyzékszám: ...] | [Adószám: ...]
+            </p>
+        </div>
+    </footer>
 
     <script>
-        // Create sparkles
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + 'vw';
-            sparkle.style.top = Math.random() * 100 + 'vh';
-            sparkle.style.animationDelay = Math.random() * 2 + 's';
-            document.body.appendChild(sparkle);
-            
-            setTimeout(() => sparkle.remove(), 3000);
-        }
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-        setInterval(createSparkle, 300);
+        // Add scroll animation to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
     </script>
 </body>
 </html>
